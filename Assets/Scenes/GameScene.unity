@@ -3551,6 +3551,7 @@ MonoBehaviour:
     peopleAmount: 0
     fuelAmount: 20
     money: 0
+  distanceToFuelRatio: 0.25
 --- !u!223 &1556986584
 Canvas:
   m_ObjectHideFlags: 0

@@ -2,6 +2,6 @@
 public class Suplies
 {
     public int peopleAmount;
-    public int fuelAmount;
+    public float fuelAmount;
     public int money;
 }
