@@ -6,12 +6,14 @@ using UnityEngine;
 public class Ship : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
+    [SerializeField] private LineDrawer drawer;
     private Vector3 _destination;
 
     public void SetDestination(Transform newDestination)
     {
         _destination = newDestination.position;
         SetRotation();
+        drawer.DrawLine(transform.position, _destination);
     }
 
     public void Go()

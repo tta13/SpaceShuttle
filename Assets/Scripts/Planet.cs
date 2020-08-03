@@ -9,6 +9,7 @@ public class Planet : MonoBehaviour
 
     private void Start()
     {
-        planetNameText.text = gameObject.name;
+        if(planetNameText != null)
+            planetNameText.text = gameObject.name;
     }
 }
