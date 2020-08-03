@@ -22,8 +22,8 @@ public class LineDrawer : MonoBehaviour
     {
         _rend.SetPosition(0, new Vector3(from.x, from.y, 0f));
         _rend.SetPosition(1, new Vector3(to.x, to.y, 0f));
-        distance = (to - from).magnitude;
-        distanceText.text = distance.ToString("F2") + " x 10^8 km";
+        distance = (to - from).magnitude / 10f;
+        distanceText.text = distance.ToString("F2") + " x 10^7 km";
     }
 
     public void EraseLine()
