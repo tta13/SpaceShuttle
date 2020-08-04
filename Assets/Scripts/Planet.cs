@@ -8,11 +8,17 @@ public class Planet : MonoBehaviour
     [SerializeField] private Suplies planetSuplies;
 
     private Button _btn;
+    private static PlanetInfoPopup _popup;
 
     private void Awake()
     {
         Ship.OnGoToPlanet += OnShipGoingToPlanet;
         Ship.OnArrive += OnShipArrived;
+
+        if (_btn == null)
+            _btn = GetComponent<Button>();
+
+        _btn.onClick.AddListener(() => ShowInfo());
     }
 
     private void Start()
@@ -23,20 +29,18 @@ public class Planet : MonoBehaviour
 
     private void OnShipArrived()
     {
-        GetButton();
         _btn.interactable = true;
     }
 
     private void OnShipGoingToPlanet()
     {
-        GetButton();
         _btn.interactable = false;
-    }
 
-    private void GetButton()
-    {
-        if (_btn == null)
-            _btn = GetComponent<Button>();
+        if (_popup.gameObject.activeSelf)
+            PopupManager.Instance.ClosePopup<PlanetInfoPopup>();
+
+        if (planetNameText != null)
+            planetNameText.gameObject.SetActive(true);
     }
 
     private void OnDestroy()
@@ -46,4 +50,14 @@ public class Planet : MonoBehaviour
     }
 
     public Suplies GetSuplies() => planetSuplies;
+
+    public void ShowInfo()
+    {
+        _popup = PopupManager.Instance.ShowPopup<PlanetInfoPopup>();
+
+        planetNameText.gameObject.SetActive(false);
+        _popup.SetPosition(planetNameText.transform.position);
+        _popup.SetPassengerCount(planetSuplies.passengers.Count);
+        _popup.SetFuelCount((int) planetSuplies.fuelAmount);
+    }
 }
