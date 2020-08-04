@@ -5014,7 +5014,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1556986583}
-        m_MethodName: SetSuplies
+        m_MethodName: SetPlanet
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 2075814294}

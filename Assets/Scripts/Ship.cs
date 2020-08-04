@@ -44,7 +44,7 @@ public class Ship : MonoBehaviour
         else
         {
             distanceTraveled = (shipSuplies.fuelAmount / distanceToFuelRatio);
-            var partialDestination = _destination.normalized * distanceTraveled;
+            var partialDestination = (_destination - transform.position).normalized * distanceTraveled;
             transform.DOMove(partialDestination, CalculateTime());
         }
 
