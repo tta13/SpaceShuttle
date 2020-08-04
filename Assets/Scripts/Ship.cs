@@ -7,14 +7,15 @@ public class Ship : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
     [SerializeField] private LineDrawer drawer;
-    [SerializeField] private int peopleCapacity = 20;
-    [SerializeField] private float fuelCapacity = 20;
-    [SerializeField] private Suplies shipSuplies;
-    [Range(0f, 1f)]
-    [SerializeField] private float distanceToFuelRatio = .25f;
 
+    private ShipSuplies mySuplies;
     private Vector3 _destination;
     private Suplies _destinationSuplies = null;
+
+    private void Awake()
+    {
+        mySuplies = GetComponent<ShipSuplies>();
+    }
 
     public void SetDestination(Transform newDestination)
     {
@@ -31,7 +32,10 @@ public class Ship : MonoBehaviour
     public void Go()
     {
         var distanceTraveled = 0f;
-        if (HasFuel())
+        var shipSuplies = mySuplies.GetShipSuplies();
+        var distanceToFuelRatio = mySuplies.GetDistanceToFuelRatio();
+
+        if (mySuplies.HasFuel(GetDistance()))
         {
             transform.DOMove(_destination, CalculateTime()).OnComplete(() => OnArrive());
             distanceTraveled = GetDistance();
@@ -43,7 +47,7 @@ public class Ship : MonoBehaviour
             transform.DOMove(partialDestination, CalculateTime());
         }
 
-        ConsumeFuel(distanceTraveled);
+        mySuplies.ConsumeFuel(distanceTraveled);
     }
 
     private float CalculateTime() =>  GetDistance() / speed;
@@ -65,40 +69,11 @@ public class Ship : MonoBehaviour
     {
         if (_destinationSuplies == null) return;
 
-        if(shipSuplies.peopleAmount + _destinationSuplies.peopleAmount > peopleCapacity)
-        {
-            _destinationSuplies.peopleAmount -= peopleCapacity - shipSuplies.peopleAmount;
-            shipSuplies.peopleAmount = peopleCapacity;
-        }
-        else
-        {
-            shipSuplies.peopleAmount += _destinationSuplies.peopleAmount;
-            _destinationSuplies.peopleAmount = 0;
-        }
-
-        if (shipSuplies.fuelAmount + _destinationSuplies.fuelAmount > fuelCapacity)
-        {
-            _destinationSuplies.fuelAmount -= fuelCapacity - shipSuplies.fuelAmount;
-            shipSuplies.fuelAmount = fuelCapacity;
-        }
-        else
-        {
-            shipSuplies.fuelAmount += _destinationSuplies.fuelAmount;
-            _destinationSuplies.fuelAmount = 0;
-        }
+        mySuplies.TransferSuplies(_destinationSuplies);
 
         _destinationSuplies = null;
     }
-
-    private bool HasFuel()
-    {
-        return GetDistance() * distanceToFuelRatio <= shipSuplies.fuelAmount;
-    }
+    
 
     private float GetDistance() => Vector3.Distance(_destination, transform.position);
-
-    private void ConsumeFuel(float distance)
-    {
-        shipSuplies.fuelAmount -= distance * distanceToFuelRatio;
-    }
 }
