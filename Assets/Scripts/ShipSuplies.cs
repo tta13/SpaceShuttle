@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class ShipSuplies : MonoBehaviour
@@ -43,29 +44,42 @@ public class ShipSuplies : MonoBehaviour
 
     private void LeavePassengers(Planet planet)
     {
+        foreach (var kvp in planetsPassengers)
+        {
+            Debug.Log(string.Format("Key = {0}", kvp.Key));
+            Debug.Log("Values");
+            foreach(var p in kvp.Value)
+            {
+                Debug.Log(p.name);
+            }
+        }
+
         var passengersToLeave = planetsPassengers[planet.name];
 
         foreach(var passenger in passengersToLeave)
         {
-            planetsPassengers[planet.name].Remove(passenger);
             shipSuplies.passengers.Remove(passenger);
         }
+
+        planetsPassengers[planet.name].RemoveRange(0, planetsPassengers[planet.name].Count);
     }
 
     private void AddSuplies(Planet planet)
     {
         var planetSuplies = planet.GetSuplies();
+        var passengerCount = 0;
 
         foreach (var passenger in planetSuplies.passengers)
         {
             if (IsShipFull())
                 continue;
 
-            planetSuplies.passengers.Remove(passenger);
             shipSuplies.passengers.Add(passenger);
-
-            planetsPassengers[planet.name].Add(passenger);
+            planetsPassengers[passenger.destiny.name].Add(passenger);
+            passengerCount += 1;
         }
+
+        planetSuplies.passengers.RemoveRange(0, passengerCount);
 
         shipSuplies.fuelAmount += planetSuplies.fuelAmount;
         planetSuplies.fuelAmount = 0;

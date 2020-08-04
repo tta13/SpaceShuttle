@@ -516,9 +516,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 2021047785}
   planetSuplies:
-    peopleAmount: 0
+    passengers: []
     fuelAmount: 0
-    money: 0
 --- !u!114 &417491364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,9 +760,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 1791812132}
   planetSuplies:
-    peopleAmount: 5
+    passengers:
+    - name: Elon Musk
+      destiny: {fileID: 1881860921}
+    - name: Kleston
+      destiny: {fileID: 2075814294}
     fuelAmount: 5
-    money: 0
 --- !u!114 &533115770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -830,7 +832,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1556986583}
-        m_MethodName: SetSuplies
+        m_MethodName: SetPlanet
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 533115769}
@@ -1047,9 +1049,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 0}
   planetSuplies:
-    peopleAmount: 0
+    passengers: []
     fuelAmount: 0
-    money: 0
 --- !u!223 &550390479
 Canvas:
   m_ObjectHideFlags: 0
@@ -1437,9 +1438,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 1173976394}
   planetSuplies:
-    peopleAmount: 10
+    passengers: []
     fuelAmount: 10
-    money: 0
 --- !u!114 &719235910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1646,9 +1646,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 641195499}
   planetSuplies:
-    peopleAmount: 0
+    passengers: []
     fuelAmount: 0
-    money: 0
 --- !u!114 &749078445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1844,9 +1843,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 1857280639}
   planetSuplies:
-    peopleAmount: 0
+    passengers: []
     fuelAmount: 0
-    money: 0
 --- !u!114 &756381256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2042,9 +2040,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 997009391}
   planetSuplies:
-    peopleAmount: 0
+    passengers: []
     fuelAmount: 0
-    money: 0
 --- !u!114 &851584314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2705,9 +2702,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 1505478220}
   planetSuplies:
-    peopleAmount: 0
+    passengers: []
     fuelAmount: 0
-    money: 0
 --- !u!114 &1228146109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2903,9 +2899,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 1334947666}
   planetSuplies:
-    peopleAmount: 0
+    passengers:
+    - name: Lebron
+      destiny: {fileID: 0}
+    - name: 
+      destiny: {fileID: 0}
+    - name: 
+      destiny: {fileID: 0}
+    - name: 
+      destiny: {fileID: 0}
+    - name: 
+      destiny: {fileID: 0}
     fuelAmount: 0
-    money: 0
 --- !u!114 &1233858659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2966,6 +2971,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1233858657}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1556986583}
+        m_MethodName: SetPlanet
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1233858658}
+          m_ObjectArgumentAssemblyTypeName: Planet, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3546,13 +3562,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2.5
   drawer: {fileID: 1841775518}
-  peopleCapacity: 20
-  fuelCapacity: 20
-  shipSuplies:
-    peopleAmount: 0
-    fuelAmount: 20
-    money: 0
-  distanceToFuelRatio: 0.25
 --- !u!223 &1556986584
 Canvas:
   m_ObjectHideFlags: 0
@@ -3603,6 +3612,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe465d3cf6dd05541a351dd7776f78f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipSuplies:
+    passengers: []
+    fuelAmount: 5
+  passengerCapacity: 20
+  fuelCapacity: 20
+  distanceToFuelRatio: 0.25
 --- !u!1 &1558025126
 GameObject:
   m_ObjectHideFlags: 0
@@ -4068,9 +4083,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 2084635523}
   planetSuplies:
-    peopleAmount: 0
+    passengers: []
     fuelAmount: 0
-    money: 0
 --- !u!114 &1817145019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4563,9 +4577,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 1148243936}
   planetSuplies:
-    peopleAmount: 0
-    fuelAmount: 0
-    money: 0
+    passengers:
+    - name: ET Valdo
+      destiny: {fileID: 533115769}
+    - name: Joshua Kimmich
+      destiny: {fileID: 2075814294}
+    fuelAmount: 5
 --- !u!114 &1881860922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4626,6 +4643,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1881860920}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1556986583}
+        m_MethodName: SetPlanet
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1881860921}
+          m_ObjectArgumentAssemblyTypeName: Planet, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4916,9 +4944,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 2099240102}
   planetSuplies:
-    peopleAmount: 1
-    fuelAmount: 5
-    money: 0
+    passengers:
+    - name: Thanos
+      destiny: {fileID: 1881860921}
+    fuelAmount: 2
 --- !u!114 &2075814295
 MonoBehaviour:
   m_ObjectHideFlags: 0

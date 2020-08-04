@@ -5,5 +5,4 @@ public class Suplies
 {
     public List<Passenger> passengers;
     public float fuelAmount;
-    public int money;
 }
