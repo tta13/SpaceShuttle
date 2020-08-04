@@ -44,16 +44,6 @@ public class ShipSuplies : MonoBehaviour
 
     private void LeavePassengers(Planet planet)
     {
-        foreach (var kvp in planetsPassengers)
-        {
-            Debug.Log(string.Format("Key = {0}", kvp.Key));
-            Debug.Log("Values");
-            foreach(var p in kvp.Value)
-            {
-                Debug.Log(p.name);
-            }
-        }
-
         var passengersToLeave = planetsPassengers[planet.name];
 
         foreach(var passenger in passengersToLeave)

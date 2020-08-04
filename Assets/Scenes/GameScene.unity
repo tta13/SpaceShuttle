@@ -516,8 +516,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 2021047785}
   planetSuplies:
-    passengers: []
-    fuelAmount: 0
+    passengers:
+    - name: Amanda Moraes
+      destiny: {fileID: 749078444}
+    - name: "J\xFAlio C\xE9sar"
+      destiny: {fileID: 2075814294}
+    - name: "Ana Virg\xEDnia"
+      destiny: {fileID: 2075814294}
+    - name: Pluto
+      destiny: {fileID: 1228146108}
+    - name: Minnie Mouse
+      destiny: {fileID: 756381255}
+    fuelAmount: 3
 --- !u!114 &417491364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,6 +588,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 417491362}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1556986583}
+        m_MethodName: SetPlanet
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 417491363}
+          m_ObjectArgumentAssemblyTypeName: Planet, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -765,7 +786,7 @@ MonoBehaviour:
       destiny: {fileID: 1881860921}
     - name: Kleston
       destiny: {fileID: 2075814294}
-    fuelAmount: 5
+    fuelAmount: 4
 --- !u!114 &533115770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1438,8 +1459,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 1173976394}
   planetSuplies:
-    passengers: []
-    fuelAmount: 10
+    passengers:
+    - name: Ben Tennyson
+      destiny: {fileID: 1817145018}
+    - name: Gwen Tennyson
+      destiny: {fileID: 1817145018}
+    fuelAmount: 7
 --- !u!114 &719235910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1506,7 +1531,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1556986583}
-        m_MethodName: SetSuplies
+        m_MethodName: SetPlanet
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 719235909}
@@ -1646,8 +1671,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 641195499}
   planetSuplies:
-    passengers: []
-    fuelAmount: 0
+    passengers:
+    - name: Romelu Lukaku
+      destiny: {fileID: 533115769}
+    - name: Vanessa Immobile
+      destiny: {fileID: 1233858658}
+    - name: Hannah Fry
+      destiny: {fileID: 851584313}
+    fuelAmount: 5
 --- !u!114 &749078445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1708,6 +1739,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 749078443}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1556986583}
+        m_MethodName: SetPlanet
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 749078444}
+          m_ObjectArgumentAssemblyTypeName: Planet, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1843,8 +1885,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 1857280639}
   planetSuplies:
-    passengers: []
-    fuelAmount: 0
+    passengers:
+    - name: Mr. Nobody
+      destiny: {fileID: 2075814294}
+    fuelAmount: 1
 --- !u!114 &756381256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1905,6 +1949,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 756381254}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1556986583}
+        m_MethodName: SetPlanet
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 756381255}
+          m_ObjectArgumentAssemblyTypeName: Planet, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2040,8 +2095,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 997009391}
   planetSuplies:
-    passengers: []
-    fuelAmount: 0
+    passengers:
+    - name: Fischer
+      destiny: {fileID: 1233858658}
+    - name: Dummy
+      destiny: {fileID: 719235909}
+    - name: Josepha
+      destiny: {fileID: 533115769}
+    fuelAmount: 3
 --- !u!114 &851584314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2091,6 +2152,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1556986583}
+        m_MethodName: SetPlanet
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 851584313}
+          m_ObjectArgumentAssemblyTypeName: Planet, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2702,8 +2774,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 1505478220}
   planetSuplies:
-    passengers: []
-    fuelAmount: 0
+    passengers:
+    - name: Number 23
+      destiny: {fileID: 756381255}
+    - name: Number 9
+      destiny: {fileID: 417491363}
+    fuelAmount: 4
 --- !u!114 &1228146109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2764,6 +2840,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1228146107}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1556986583}
+        m_MethodName: SetPlanet
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1228146108}
+          m_ObjectArgumentAssemblyTypeName: Planet, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2900,17 +2987,15 @@ MonoBehaviour:
   planetNameText: {fileID: 1334947666}
   planetSuplies:
     passengers:
-    - name: Lebron
-      destiny: {fileID: 0}
-    - name: 
-      destiny: {fileID: 0}
-    - name: 
-      destiny: {fileID: 0}
-    - name: 
-      destiny: {fileID: 0}
-    - name: 
-      destiny: {fileID: 0}
-    fuelAmount: 0
+    - name: Lebron James
+      destiny: {fileID: 749078444}
+    - name: Paul Pogba
+      destiny: {fileID: 851584313}
+    - name: Ester Hadassa
+      destiny: {fileID: 1817145018}
+    - name: "Vera L\xFAcia"
+      destiny: {fileID: 1881860921}
+    fuelAmount: 4
 --- !u!114 &1233858659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4083,8 +4168,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameText: {fileID: 2084635523}
   planetSuplies:
-    passengers: []
-    fuelAmount: 0
+    passengers:
+    - name: ET Bilu
+      destiny: {fileID: 417491363}
+    - name: James Harden
+      destiny: {fileID: 719235909}
+    - name: Luka Doncic
+      destiny: {fileID: 756381255}
+    - name: Felix Kjelberg
+      destiny: {fileID: 1881860921}
+    - name: Public Class
+      destiny: {fileID: 1228146108}
+    fuelAmount: 5
 --- !u!114 &1817145019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4145,6 +4240,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1817145017}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1556986583}
+        m_MethodName: SetPlanet
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1817145018}
+          m_ObjectArgumentAssemblyTypeName: Planet, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4582,7 +4688,7 @@ MonoBehaviour:
       destiny: {fileID: 533115769}
     - name: Joshua Kimmich
       destiny: {fileID: 2075814294}
-    fuelAmount: 5
+    fuelAmount: 3
 --- !u!114 &1881860922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4947,6 +5053,10 @@ MonoBehaviour:
     passengers:
     - name: Thanos
       destiny: {fileID: 1881860921}
+    - name: Ada Lovelace
+      destiny: {fileID: 417491363}
+    - name: Marciano
+      destiny: {fileID: 533115769}
     fuelAmount: 2
 --- !u!114 &2075814295
 MonoBehaviour:

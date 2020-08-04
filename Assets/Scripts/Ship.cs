@@ -30,28 +30,30 @@ public class Ship : MonoBehaviour
         _destinationPlanet = planet;
     }
 
+
     public void Go()
     {
         var distanceTraveled = 0f;
         var shipSuplies = mySuplies.GetShipSuplies();
         var distanceToFuelRatio = mySuplies.GetDistanceToFuelRatio();
+        var pos = transform.position;
 
         if (mySuplies.HasFuel(GetDistance()))
         {
-            transform.DOMove(_destination, CalculateTime()).OnComplete(() => OnArrive());
             distanceTraveled = GetDistance();
+            transform.DOMove(_destination, CalculateTime(distanceTraveled)).OnComplete(() => OnArrive());
         }
         else
         {
             distanceTraveled = (shipSuplies.fuelAmount / distanceToFuelRatio);
-            var partialDestination = (_destination - transform.position).normalized * distanceTraveled;
-            transform.DOMove(partialDestination, CalculateTime());
+            var partialDestination = (_destination - pos).normalized * (distanceTraveled / 2f);
+            transform.DOMove(partialDestination, CalculateTime(distanceTraveled / 2f));
         }
 
         mySuplies.ConsumeFuel(distanceTraveled);
     }
 
-    private float CalculateTime() =>  GetDistance() / speed;
+    private float CalculateTime(float distance) =>  distance / speed;
 
     private void SetRotation()
     {
