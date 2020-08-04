@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ShipSuplies : MonoBehaviour
 {
-
     [SerializeField] private Suplies shipSuplies;
     [SerializeField] private int passengerCapacity = 20;
     [SerializeField] private float fuelCapacity = 20f;
@@ -89,4 +88,10 @@ public class ShipSuplies : MonoBehaviour
     public bool IsShipFull() => shipSuplies.passengers.Count >= passengerCapacity;
 
     public bool IsFuelFull() => shipSuplies.fuelAmount >= fuelCapacity;
+
+    public int GetPassengerCount() => shipSuplies.passengers.Count;
+
+    public float GetFuelCount() => shipSuplies.fuelAmount;
+
+    public float GetMaxFuel() => fuelCapacity;
 }

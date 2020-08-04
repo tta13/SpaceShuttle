@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Sharer : MonoBehaviour//, ISharer
+public class Sharer : MonoBehaviour, ISharer
 {
     [SerializeField] private string appUrl;
     [SerializeField] private string defaultMessage = "Baixe agora o RED: ";
@@ -14,14 +14,14 @@ public class Sharer : MonoBehaviour//, ISharer
     {
         if(_share == null)
             _share = new NativeShare();
-    }
+    }*/
 
     public void Share()
     {
-        StartCoroutine(ShareMsg());
+        //StartCoroutine(ShareMsg());
     }
 
-    private IEnumerator ShareMsg()
+    /*private IEnumerator ShareMsg()
     {
         yield return new WaitForEndOfFrame();
 

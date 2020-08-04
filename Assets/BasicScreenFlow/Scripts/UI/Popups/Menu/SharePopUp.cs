@@ -22,7 +22,7 @@ public class SharePopUp : GenericPopup
     private IEnumerator ShareMsg()
     {
         yield return new WaitForEndOfFrame();
-
+        /*
         NativeShare _share = new NativeShare();
 
         _share.SetSubject("Venha Jogar!");
@@ -50,7 +50,7 @@ public class SharePopUp : GenericPopup
 
         _share.SetText(msgText);
 
-        _share.Share();
+        _share.Share();*/
     }
 
     public override void RequestHide()
