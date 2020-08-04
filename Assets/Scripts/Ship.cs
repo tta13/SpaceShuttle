@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,10 @@ public class Ship : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private LineDrawer drawer;
 
-    private ShipSuplies mySuplies;
+    public static event Action OnGoToPlanet;
+    public static event Action OnArrive;
 
+    private ShipSuplies mySuplies;
     private Vector3 _destination;
     private Planet _destinationPlanet;
 
@@ -30,9 +33,10 @@ public class Ship : MonoBehaviour
         _destinationPlanet = planet;
     }
 
-
     public void Go()
     {
+        OnGoToPlanet?.Invoke();
+
         var distanceTraveled = 0f;
         var shipSuplies = mySuplies.GetShipSuplies();
         var distanceToFuelRatio = mySuplies.GetDistanceToFuelRatio();
@@ -41,7 +45,7 @@ public class Ship : MonoBehaviour
         if (mySuplies.HasFuel(GetDistance()))
         {
             distanceTraveled = GetDistance();
-            transform.DOMove(_destination, CalculateTime(distanceTraveled)).OnComplete(() => OnArrive());
+            transform.DOMove(_destination, CalculateTime(distanceTraveled)).OnComplete(() => Arrive());
         }
         else
         {
@@ -63,8 +67,9 @@ public class Ship : MonoBehaviour
         transform.DORotateQuaternion(quat, 1f);
     }
 
-    private void OnArrive()
+    private void Arrive()
     {
+        OnArrive?.Invoke();
         TransferSuplies();
     }
 
