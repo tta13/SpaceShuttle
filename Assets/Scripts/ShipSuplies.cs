@@ -1,6 +1,5 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class ShipSuplies : MonoBehaviour
@@ -12,6 +11,8 @@ public class ShipSuplies : MonoBehaviour
     [SerializeField] private float distanceToFuelRatio = .25f;
 
     private Dictionary<string, List<Passenger>> planetsPassengers;
+
+    public static event Action<int> OnDeliverPassenger;
 
     private void Awake()
     {
@@ -50,6 +51,7 @@ public class ShipSuplies : MonoBehaviour
             shipSuplies.passengers.Remove(passenger);
         }
 
+        OnDeliverPassenger?.Invoke(passengersToLeave.Count);
         planetsPassengers[planet.name].RemoveRange(0, planetsPassengers[planet.name].Count);
     }
 
