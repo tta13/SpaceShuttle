@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 286491365}
   - component: {fileID: 286491364}
+  - component: {fileID: 286491363}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -138,6 +139,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!81 &286491363
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286491362}
+  m_Enabled: 1
 --- !u!20 &286491364
 Camera:
   m_ObjectHideFlags: 0
@@ -513,7 +522,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3ce6373c69efd4cb4eadc8f0efa948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sounds: []
+  _sounds:
+  - name: The Scotts
+    audioFile: {fileID: 8300000, guid: f3be01ec6be149c42a633a75c0ac30f6, type: 3}
+    volume: 0.4
+    RandomVolume: 0.05
+    pitch: 1
+    RandomPitch: 0.1
+    loop: 1
+    IsBGM: 1
+    source: {fileID: 0}
 --- !u!1 &1030217114
 GameObject:
   m_ObjectHideFlags: 0
