@@ -1,7 +1,9 @@
-﻿[System.Serializable]
+﻿using System.Collections.Generic;
+
+[System.Serializable]
 public class Suplies
 {
-    public int peopleAmount;
+    public List<Passenger> passengers;
     public float fuelAmount;
     public int money;
 }

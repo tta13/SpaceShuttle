@@ -9,8 +9,9 @@ public class Ship : MonoBehaviour
     [SerializeField] private LineDrawer drawer;
 
     private ShipSuplies mySuplies;
+
     private Vector3 _destination;
-    private Suplies _destinationSuplies = null;
+    private Planet _destinationPlanet;
 
     private void Awake()
     {
@@ -24,9 +25,9 @@ public class Ship : MonoBehaviour
         drawer.DrawLine(transform.position, _destination);
     }
 
-    public void SetSuplies(Planet planet)
+    public void SetPlanet(Planet planet)
     {
-        _destinationSuplies = planet.GetSuplies();
+        _destinationPlanet = planet;
     }
 
     public void Go()
@@ -67,13 +68,8 @@ public class Ship : MonoBehaviour
 
     private void TransferSuplies()
     {
-        if (_destinationSuplies == null) return;
-
-        mySuplies.TransferSuplies(_destinationSuplies);
-
-        _destinationSuplies = null;
-    }
-    
+        mySuplies.TransferSuplies(_destinationPlanet);
+    }    
 
     private float GetDistance() => Vector3.Distance(_destination, transform.position);
 }
