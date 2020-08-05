@@ -53,7 +53,8 @@ public class Planet : MonoBehaviour
 
     public void ShowInfo()
     {
-        _popup = PopupManager.Instance.ShowPopup<PlanetInfoPopup>();
+        if (_popup == null || !_popup.gameObject.activeSelf)
+            _popup = PopupManager.Instance.ShowPopup<PlanetInfoPopup>();
 
         planetNameText.gameObject.SetActive(false);
         _popup.SetPosition(planetNameText.transform.position);
