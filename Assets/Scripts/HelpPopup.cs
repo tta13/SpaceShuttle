@@ -1,18 +1,50 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class HelpPopup : MonoBehaviour
+public class HelpPopup : GenericPopup
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject fuelPanel;
+    [SerializeField] private GameObject passengerPanel;
+    [SerializeField] private Transform content;
+    [SerializeField] private GameObject passengerContainer;
+
+    private List<GameObject> _containers;
+
+    private void Start()
     {
-        
+        if(_containers == null)
+            _containers = new List<GameObject>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TogglePanels(bool activateFuel)
     {
-        
+        fuelPanel.SetActive(activateFuel);
+        passengerPanel.SetActive(!activateFuel);
+    }
+
+    public void SetPassengers(List<Passenger> passengers)
+    {
+        foreach(var p in passengers)
+        {
+            var container = Instantiate(passengerContainer, content);
+            container.GetComponent<PassengerInfoContainer>().SetPassenger(p);
+            _containers.Add(container);
+        }
+    }
+
+    public override void RequestHide()
+    {
+        PopupManager.Instance.ClosePopup<HelpPopup>();
+        DestroyGarbage();
+    }
+
+    private void DestroyGarbage()
+    {
+        foreach(var c in _containers)
+        {
+            Destroy(c);
+        }
+
+        _containers.RemoveRange(0, _containers.Count);
     }
 }

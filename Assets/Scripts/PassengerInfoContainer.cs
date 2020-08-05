@@ -1,18 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
 
 public class PassengerInfoContainer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private TMP_Text passenger;
+    [SerializeField] private TMP_Text destiny;
+
+    private Passenger _passenger;
+
+    public void SetPassenger(Passenger p)
     {
-        
+        _passenger = p;
+        UpdateText();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateText()
     {
-        
+        passenger.text = _passenger.name;
+        destiny.text = _passenger.destiny.name;
     }
 }

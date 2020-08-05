@@ -96,4 +96,10 @@ public class ShipSuplies : MonoBehaviour
     public float GetFuelCount() => shipSuplies.fuelAmount;
 
     public float GetMaxFuel() => fuelCapacity;
+
+    public void ShowShipInfo()
+    {
+        var popup = PopupManager.Instance.ShowPopup<HelpPopup>();
+        popup.SetPassengers(shipSuplies.passengers);
+    }
 }
