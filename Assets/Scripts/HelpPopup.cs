@@ -10,12 +10,6 @@ public class HelpPopup : GenericPopup
 
     private List<GameObject> _containers;
 
-    private void Start()
-    {
-        if(_containers == null)
-            _containers = new List<GameObject>();
-    }
-
     public void TogglePanels(bool activateFuel)
     {
         fuelPanel.SetActive(activateFuel);
@@ -24,7 +18,10 @@ public class HelpPopup : GenericPopup
 
     public void SetPassengers(List<Passenger> passengers)
     {
-        foreach(var p in passengers)
+        if (_containers == null)
+            _containers = new List<GameObject>();
+
+        foreach (var p in passengers)
         {
             var container = Instantiate(passengerContainer, content);
             container.GetComponent<PassengerInfoContainer>().SetPassenger(p);
