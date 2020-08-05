@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ship : MonoBehaviour
 {
@@ -48,8 +49,9 @@ public class Ship : MonoBehaviour
         else
         {
             distanceTraveled = (shipSuplies.fuelAmount / distanceToFuelRatio);
-            var partialDestination = (_destination).normalized * (distanceTraveled);
-            transform.DOMove(partialDestination, CalculateTime(distanceTraveled / 2f));
+            var partialDestination = (_destination - pos).normalized * (distanceTraveled / 2f);
+            transform.DOMove((partialDestination + pos), CalculateTime(distanceTraveled / 2f)).OnComplete(
+                () => SceneManager.LoadScene(7));
         }
 
         mySuplies.ConsumeFuel(distanceTraveled);
